@@ -34,11 +34,27 @@ func main() {
 				chooseOperator.Scan()
 				chi := chooseOperator.Text();
 				if chi != "" && chi != " " {
-					fmt.Printf("You want to show enter result? [Y/N]");
+					fmt.Printf("You want to show enter result? [Y/N] \n");
 					sr := bufio.NewScanner(os.Stdin);
 					sr.Scan()
 					sri := sr.Text()
-					fmt.Printf(sri);
+					fmt.Printf("You Choose: " + sri + "\n");
+
+					if sri == "Y" || sri == "y" || sri == "n" || sri == "N" {
+						// component to building calc;
+						fmt.Printf("Please enter a first number");
+						firstNumberScanner := bufio.NewScanner(os.Stdin)
+						firstNumberScanner.Scan()
+						fnsi := firstNumberScanner.Text();
+						fmt.Printf(fnsi);
+						if sri == "n" || sri == "N" {
+							fmt.Printf("not result" + fnsi);
+						} else {
+							fmt.Printf("Yes result " + fnsi);
+						}
+					} else {
+						fmt.Printf("That's bad choose format " + sri + " bye.");
+					}
 					
 					// fmt.Printf(input + ", " + "Please Enter a first number");
 				} else {
