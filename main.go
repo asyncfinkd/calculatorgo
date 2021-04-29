@@ -29,10 +29,15 @@ func main() {
 		if continueInput == "Y" || continueInput == "y" {
 			/* Continue Calculator Section */
 			if count != true {
+				fmt.Printf("Choose Operator (+, -, *, /, %, \n");
 				chooseOperator := bufio.NewScanner(os.Stdin);
 				chooseOperator.Scan()
-				chi := chooseOperator.Text()
-				fmt.Printf(chi);
+				chi := chooseOperator.Text();
+				switch chi {
+					case "+":
+						fmt.Println("Plus");
+						break;
+				}
 			}
 		} else if continueInput == "N" || continueInput == "n" {
 			fmt.Printf("You Choose: " + continueInput + " Thanks for using calculator");
