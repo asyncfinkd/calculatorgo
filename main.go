@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"bufio"
 	"os"
-	// "strconv"
+	"strconv"
 )
 
 func main() {
@@ -42,15 +42,50 @@ func main() {
 
 					if sri == "Y" || sri == "y" || sri == "n" || sri == "N" {
 						// component to building calc;
-						fmt.Printf("Please enter a first number");
+						// first number enter;
 						firstNumberScanner := bufio.NewScanner(os.Stdin)
+						fmt.Printf("Please enter a first number \n");
 						firstNumberScanner.Scan()
-						fnsi := firstNumberScanner.Text();
-						fmt.Printf(fnsi);
+						fnsi, _ := strconv.ParseInt(firstNumberScanner.Text(), 10, 64);
 						if sri == "n" || sri == "N" {
-							fmt.Printf("not result" + fnsi);
+							// empty;
 						} else {
-							fmt.Printf("Yes result " + fnsi);
+							fmt.Println(fnsi);
+						}
+						// second number enter;
+						fmt.Printf("Please enter a second number \n");
+						secondNumberScanner := bufio.NewScanner(os.Stdin);
+						secondNumberScanner.Scan()
+						snsi, _ := strconv.ParseInt(secondNumberScanner.Text(), 10, 64);
+						if sri == "n" || sri == "N" {
+							// empty;
+						} else {
+							fmt.Println(snsi);
+						}
+						switch chi {
+							case "+":
+								z := fnsi + snsi;
+								fmt.Println(z);
+								break;
+							case "-":
+								z := fnsi - snsi;
+								fmt.Println(z);
+								break;
+							case "*":
+								z := fnsi * snsi;
+								fmt.Println(z);
+								break;
+							case "/":
+								z := fnsi / snsi;
+								fmt.Println(z);
+								break;
+							case "%":
+								z := fnsi % snsi;
+								fmt.Println(z);
+								break;
+							default:
+								z := "choose bad format error";
+								fmt.Printf(z);
 						}
 					} else {
 						fmt.Printf("That's bad choose format " + sri + " bye.");
