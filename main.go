@@ -33,10 +33,16 @@ func main() {
 				chooseOperator := bufio.NewScanner(os.Stdin);
 				chooseOperator.Scan()
 				chi := chooseOperator.Text();
-				switch chi {
-					case "+":
-						fmt.Println("Plus");
-						break;
+				if chi != "" && chi != " " {
+					fmt.Printf("You want to show enter result? [Y/N]");
+					sr := bufio.NewScanner(os.Stdin);
+					sr.Scan()
+					sri := sr.Text()
+					fmt.Printf(sri);
+					
+					// fmt.Printf(input + ", " + "Please Enter a first number");
+				} else {
+					fmt.Println("You Choose " + chi + " and that's bad choose format bye.");
 				}
 			}
 		} else if continueInput == "N" || continueInput == "n" {
